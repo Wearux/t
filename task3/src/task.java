@@ -4,6 +4,7 @@ import java.util.Scanner;
  * Created by D on 27.10.2016.
  */
 public class task {
+ //условия
     public static void task3_1A (){
         int a=3, b=2;
         System.out.format("a=%d b=%d %n", a,b);
@@ -71,8 +72,126 @@ public class task {
             else if(l<h) System.out.println("obtuse");
             else if(l==h) System.out.println("rectangular");
     }
-    public static void task3_1Y(){
+    public static void task3_1Y(Scanner sc){
+        int n = sc.nextInt(), n10, n60;
+        if (n>=60) n60=n/60;
+        else n60=0;
+        n -=n60*60;
+        if((n>=35) && (n<60)) {
+            n60++;
+            n -=60;
+        }
+        if(n>9) n10=n/10;
+        else n10=0;
+        n -=n10*10;
+        if(n==9) {
+            n10++;
+            n -=10;
+        }
+        if(n<1) n=0;
+        System.out.format("%d %d %d",n,n10,n60);
+    }
+    public static void task3_1Z(Scanner sc){
+        int n = sc.nextInt(), n10, n60, n5 , n20;
+        if (n>=60) n60=n/60;
+        else n60=0;
+        n -=n60*60;
+        if((n>=36) && (n<60)) {
+            n60++;
+            n -=60;
+        }
+        if(n>=20) n20=n/20;
+        else n20=0;
+        n -=n20*20;
+        if((n>=18) && (n<20)) {
+            n20++;
+            n -=20;
+        }
+        if(n>9) n10=n/10;
+        else n10=0;
+        n -=n10*10;
+        if(n==9) {
+            n10++;
+            n -=10;
+        }
+        if(n>=5) n5=n/5;
+        else n5=0;
+        n -=n5*5;
+        if(n<1) n=0;
+        System.out.format("%d %d %d %d %d",n,n5,n10,n20,n60);
+    }
 
+//циклы
+    public static void task321(Scanner sc)
+    {
+        int n = sc.nextInt();
+        int sum = 0;
+        for (int i = 1; i <= n ; i++)
+        {
+            sum += i*i;
+        }
+        System.out.println(sum);
+    }
+    public static void task322(Scanner sc)
+    {
+        int n = sc.nextInt();
+        int sum = 0;
+        for (int i = 1; i <= n ; i++)
+        {
+            sum += (i-1)*i;
+
+        }
+        System.out.println(sum);
+    }
+    public static void task323(Scanner sc)
+    {
+        int n = sc.nextInt();
+        int sumMain = 0;
+        int sumBuf=0;
+        for (int i = 1; i <= n ; i++)
+        {
+            sumBuf +=i;
+            sumMain +=sumBuf ;
+        }
+        System.out.println(sumMain);
+    }
+    public static void task324(Scanner sc)
+    {
+
+        int a = sc.nextInt();
+        int b=sc.nextInt();
+        a=(a%2)==0?a:(a+1);
+        for (int i = a; i <= b ; i+=2)
+        {
+            System.out.println(i);
+        }
+
+    }
+    public static void task325(Scanner sc)
+    {
+
+        int n = sc.nextInt();
+        int pr = 1;
+
+        for (int i = 1; i <=n ; i++)
+        {
+            pr*=i;
+        }
+        System.out.println(pr);
+    }
+    public static void task326(Scanner sc)
+    {
+
+        int n = sc.nextInt();
+        int k= sc.nextInt();
+        int pr1 = 1,pr2=1;
+        for (int i = 1; i <=n-k; i++)
+        {
+            pr1 *= (k+i);
+            pr2*= i;
+        }
+        int CNK = pr1/pr2;
+        System.out.println(CNK);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -84,6 +203,13 @@ public class task {
         //task3_1G();
         //task3_1V();
         //task3_1W();
-        task3_1Y();
+        //task3_1Y(sc);
+        //task3_1Z(sc);
+        // task321(sc);
+        // task322(sc);
+        //task323(sc);
+        // task324(sc);
+        //task325(sc);
+        // task326(sc);
     }
 }
