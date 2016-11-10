@@ -193,6 +193,66 @@ public class task {
         int CNK = pr1/pr2;
         System.out.println(CNK);
     }
+    public static void task327(Scanner sc){
+        double a=sc.nextDouble(),n=sc.nextDouble(),abuf=1;
+        if(n!=0)
+        while(n!=0){
+            if(n==1) n -=1;
+            else if(n % 2 == 0) {a *=a; n /=2;}
+            else {abuf *=a; n -=1;}
+        }
+        else a=1;
+        System.out.println(a*abuf);
+    }
+    public static void task328(Scanner sc){
+        double n = sc.nextDouble(),sum=1.0;
+        for(int i=2; i<=n; i++) sum +=1.0/(i*i);
+        System.out.println(sum);
+    }
+    public static void task329(Scanner sc){
+        double n = sc.nextDouble(),sum=1.0;
+        int sign = -1;
+        for(int i = 1 ; i <= n ; i++) {
+            sum += sign / ( 2.0 * i + 1 );
+            sign = -sign;
+        }
+        System.out.println(4*sum);
+    }
+    public static void task3210(Scanner sc){
+        double a=sc.nextDouble(), n = sc.nextDouble(),sum=1.0, an=1.0;
+        for( int i = 1 ; i <= n ; i++)
+        {
+            an *= a;
+            sum += an;
+        }
+        System.out.println("без прогрессии "+sum);
+        sum=1.0; an=1.0; double q=a/1.0;
+        for( int i = 1 ; i <= n ; i++)
+        {
+            an *=a;
+            sum =(an*q-1)/(q-1);
+        }
+        System.out.println("c прогрессией "+sum);
+    }
+    public static void task3211(Scanner sc){
+        int n=Integer.parseInt(sc.nextLine()),sum=0;
+        for (int i = 0; i < n; i++) {
+            sum +=Integer.parseInt(sc.nextLine());
+        }
+        System.out.println(sum);
+    }
+    public static void task3212(){
+        int d,u;
+        for (u = 6; u < 10; u++) {
+            d =-u/(10-2*u);
+            if(2*d*u==10*d+u) System.out.println(2*d*u);
+        }
+    }
+    public static void task3213(){
+        for (int i = 110; i <= 999; i++) {
+            if(i==i*i%1000) System.out.println(i);
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //task3_1A();
@@ -211,5 +271,12 @@ public class task {
         // task324(sc);
         //task325(sc);
         // task326(sc);
+        //task327(sc);
+        //task328(sc);
+        //task329(sc);
+        //task3210(sc);
+        //task3211(sc);
+        //task3212();
+        task3213();
     }
 }
