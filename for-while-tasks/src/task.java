@@ -143,6 +143,61 @@ public class task {
         if (result==0) System.out.println("YES");
         else System.out.println("NO");
     }
+    public static void task211(Scanner sc)
+    {
+        int n = sc.nextInt(),m=1;
+        while(m<=n){
+            System.out.println(m);
+            m *=2;
+        }
+    }
+    public static void task212(Scanner sc){
+        int n = sc.nextInt(),k=0;
+        if(n%2!=0) n +=n%2;
+        while (n!=1){
+            n /=2; k++;
+        }
+        System.out.println(k);
+    }
+    public static void task213(Scanner sc){
+        double x = sc.nextDouble(), y = sc.nextDouble(); int i=1;
+        while(x<y){
+            x =x+x*0.1; i++;
+        }
+        System.out.println(i);
+    }
+    public static void task214(Scanner sc){
+        double x = sc.nextDouble(), y = sc.nextDouble(), sum=0; int i=0;
+        while(sum<y){
+            sum +=x;
+            x =x+x*0.1; i++;
+        }
+        System.out.println(i);
+    }
+    public static void task215(Scanner sc){
+        int n=1,sum=sc.nextInt();
+        while(n!=0){
+            n=sc.nextInt();
+            sum +=n;
+        }
+        System.out.println(sum);
+    }
+    public static void task216(Scanner sc){
+        int n=sc.nextInt(); double a=1,sum=1;
+        for (int i = 1; i <= n; i++) {
+            a =a*1/i;
+            sum +=a;
+        }
+        System.out.println(sum);
+    }
+    public static void task217(Scanner sc){
+        int n=sc.nextInt(),fb=0,f1=1,f2=0;
+        for (int i = 1; i <=n ; i++) {
+            fb=f1+f2;
+            f1=f2;f2=fb;
+        }
+        System.out.println(fb);
+    }
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
@@ -160,6 +215,13 @@ public class task {
         //task27(sc);
         //task28(sc);
         //task29(sc);
-        task210(sc);
+        //task210(sc);
+        //task211(sc);
+        //task212(sc);
+        //task213(sc);
+        //task214(sc);
+        //task215(sc);
+        //task216(sc);
+        task217(sc);
     }
 }
