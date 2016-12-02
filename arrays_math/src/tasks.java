@@ -120,7 +120,37 @@ public class tasks {
         if(n>1) System.out.print(n);
     }
     public static void math4 (Scanner sc){
-
+        StringBuilder str = new StringBuilder(); int j=0;
+        long i,a=Integer.parseInt(sc.nextLine()); i=a;
+        while(i>=1 && j!=5) {
+            if(i*i<=a){
+                    str.append(i+" ");
+                    a -=i*i; i=a; j++;
+            }
+            else i--;
+        }
+        if(j<2)str.append("0 0 0") ;
+        else if(j<3)str.append("0 0") ;
+        else if(j<4)str.append("0") ;
+        if(j!=5)
+        System.out.print(str);
+        else System.out.print("Не удалось найти");
+    }
+    public static void math5 (Scanner sc){
+        int n=Integer.parseInt(sc.nextLine()), l,i,j=0,k; boolean prime=false;
+        for ( i = 2; i < n; i++) {
+            l=(int)Math.sqrt(i);
+            for ( k = 2; k <= l; k++)
+                if (i%k==0) {prime=true; break;}
+            if(!prime) {
+                j=n-i; l=(int)Math.sqrt(j);
+                for ( k = 2; k <= l; k++) {
+                    if (j%k==0) {prime=true; break;}
+                }
+            }
+            if(!prime) {System.out.format("%d %d",i,j); break;}
+            prime=false;
+        }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
@@ -148,6 +178,7 @@ public class tasks {
         //math1 (sc);
         //math2 (sc);
         //math3 (sc);
-        math4 (sc);
+        //math4 (sc);
+        math5 (sc);
     }
 }
