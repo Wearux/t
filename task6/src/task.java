@@ -248,6 +248,7 @@ public class task {
         // task6(sc);
         // task7(sc);
         // task8(sc);
+        //task21(sc);
         //task22(sc);
         //task23(sc);
         //task24(sc);
