@@ -1,5 +1,7 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.lang.StringBuilder;
 
 /**
  * Created by U_LIVT33514 on 10.12.2016.
@@ -175,7 +177,7 @@ public class task {
         Random random = new Random();
         int[] array = new int[n];
         for (int i = 0; i < array.length; i++) {
-            array[i]= random.nextInt(10);
+            array[i]= random.nextInt(10); if(array[i]==0) array[i]=1;
             System.out.format("%d ",array[i]);
         }
         System.out.format("%n");
@@ -238,6 +240,99 @@ public class task {
         int n=sc.nextInt();
         LastMax(Creatmas(n));
     }
+    public static void merge (int A[], int n, int B[], int m, int C[]){
+        int i=0, j=0,a,b;
+        for (int k=0; k<C.length; k++) {
+
+            if (i > A.length-1) {
+                a = B[j];
+                C[k] = a;
+                j++;
+            }
+            else if (j > B.length-1) {
+                 a = A[i];
+                C[k] = a;
+                i++;
+            }
+            else if (A[i] < B[j]) {
+                 a = A[i];
+                C[k] = a;
+                i++;
+            }
+            else {
+                 b = B[j];
+                C[k] = b;
+                j++;
+            }
+        }
+        System.out.println("sort mass:");
+        for (int k = 0; k < A.length; k++) {
+            System.out.print(A[k]+" ");
+        }
+        System.out.println("");
+        for (int k = 0; k < B.length; k++) {
+            System.out.print(B[k]+" ");
+        }
+        System.out.println("");
+        for (int k = 0; k < C.length; k++) {
+            System.out.print(C[k]+" ");
+        }
+    }
+    public static void task34(Scanner sc){
+        int n=sc.nextInt(); int m=sc.nextInt(); int[] A = Creatmas(n), B = Creatmas(m), C = new int[n+m];
+        Arrays.sort(A); Arrays.sort(B);
+        merge(A, n, B, m, C);
+    }
+
+    public static void task35(Scanner sc){
+        int n=sc.nextInt(),f=0;
+        int[] A = Creatmas(n);
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 0; j < A.length; j++) {
+                if(i==A[j]) f++;
+            }
+            System.out.print(f+" "); f=0;
+        }
+    }
+
+    public static void task36(Scanner sc){
+        StringBuilder n = new StringBuilder();
+        n.append(sc.nextLine());
+        int f=0;
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 0; j < n.length(); j++) {
+                if(i==Integer.valueOf(String.valueOf(n.charAt(j)))) f++;
+            }
+            System.out.print(f+" "); f=0;
+        }
+    }
+
+    public static void Intersection(int A[], int B[]){
+        int j=0;
+        for (int i = 0; i < A.length; i++) {
+            if(j==B.length) break;
+            if(i==0 || A[i-1]!=A[i])
+            while(j<B.length){
+                if(B[j]==A[i]) {System.out.print(A[i]); j++; break;}
+                else if(B[j]>A[i]) break;
+                j++;
+            }
+        }
+    }
+    public static void task37(Scanner sc){
+        int n=sc.nextInt(); int m=sc.nextInt(); int[] A = Creatmas(n), B = Creatmas(m);
+        Arrays.sort(A); Arrays.sort(B);
+        System.out.println("sort mass:");
+        for (int k = 0; k < A.length; k++) {
+            System.out.print(A[k]+" ");
+        }
+        System.out.println("");
+        for (int k = 0; k < B.length; k++) {
+            System.out.print(B[k]+" ");
+        }
+        System.out.println();
+        Intersection(A, B);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //task1(sc);
@@ -256,6 +351,10 @@ public class task {
         //task26(sc);
         //task31(sc);
         //task32(sc);
-        task33(sc);
+        //task33(sc);
+        //task34(sc);
+        //task35(sc);
+        //task36(sc);
+        task37(sc);
     }
 }
